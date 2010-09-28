@@ -1,0 +1,35 @@
+h1. BasicActiveModel
+
+BasicActiveModel provides a minimal architecture for a model that may be used in Rails forms.
+It does not provide any kind of implementation. It may be used to create static models (search, contact us, etc.).
+
+It includes ActiveModel validations and may be initialized with an argument Hash with optional mass assignment security.
+
+Please take a look of the specs for more information...
+
+h2. Installation
+
+In your Gemfile:
+
+<pre>
+  gem "basic_active_model"
+</pre>
+
+h2. Example
+
+<pre>
+  class ContactUs < BasicActiveModel
+    attr_accessor :email, :subject, :body, :admin
+    attr_accessible :email, :subject, :body
+    validates_presence_of :body
+  end
+  
+  ...
+  (in a controller)
+  ...
+  
+  @contact_us = ContactUs.new(params[:contact_us])
+  if @contact_us.valid?
+    ...
+</pre>
+
