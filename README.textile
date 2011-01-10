@@ -9,6 +9,8 @@ Please take a look of the specs for more information...
 
 h2. Installation
 
+WARNING : this gem uses ActiveModel and therefore is only compatible with Rails 3.
+
 In your Gemfile:
 
 <pre>
